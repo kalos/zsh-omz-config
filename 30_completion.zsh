@@ -46,9 +46,6 @@ zstyle ':completion:*' menu select=2
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %P Lines: %m
 zstyle ':completion:*' squeeze-slashes true
 
-zstyle ':completion:*' use-cache on
-#zstyle ':completion:*' cache-path ~/.zsh/cache
-
 
 zstyle ':completion::prefix-1:*' completer _complete
 zstyle ':completion:incremental:*' completer _complete _correct

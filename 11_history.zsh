@@ -20,7 +20,7 @@ unsetopt hist_beep            # don't beep on history expansion errors
 unsetopt share_history        # traditional bash-history
 
 #[ -w ${HOME}/.zsh/history ] && HISTFILE=${HOME}/.zsh/history
-HISTFILE=${HOME}/.zsh/history
+#HISTFILE=${HOME}/.zsh/history
 HISTSIZE=100000             # size of history
 SAVEHIST=65536              # maximum of history events to be save
 DIRSTACKSIZE=50
