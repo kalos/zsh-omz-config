@@ -1,0 +1,7 @@
+h2. zsh config (using oh-my-zsh)
+
+Simply put these files in ~/.oh-my-zsh/custom and make link for .zshrc:
+
+@git clone git://github.com/kalos/zsh-omz-config.git ~/.oh-my-zsh/custom@
+@mv ~/.zshrc ~/.zshrc.orig@
+@ln -s ~/.oh-my-zsh/custom/.zshrc ~/.zshrc@
