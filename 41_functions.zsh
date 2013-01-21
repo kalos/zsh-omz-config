@@ -98,6 +98,11 @@ function dict () {
 #    /usr/bin/man $* | col -bp | iconv -c | view -c 'set ft=man nomod nolist' -
 #}
 
+function mans {
+    man $1 | grep -iC2 --color=always $2 | less
+}
+compdef $_comps[man] mans
+
 # Search in the $HISTFILE and select result to execute
 #function selhist()
 #{
@@ -132,6 +137,11 @@ function 6to4() {
         printf "2002:%02x%02x:%02x%02x::1" `echo $ipv4 | tr "." " "`;echo
 }
 
+
+function S(){
+  ssh -t "$1" 'tmux attach || tmux new || screen -DR'
+}
+compdef S=ssh
 
 function any() {
         if [[ -z "$1" ]] ; then

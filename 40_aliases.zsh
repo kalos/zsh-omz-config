@@ -55,6 +55,12 @@ alias lssuid="ls -l -- *(s,S) | head $@ 2&>/dev/null"   # only show suid-files
 alias screen="screen -U -l"
 alias scr="screen -DR"
 alias scd="screen -S"
+
+
+# create, list and resume
+alias sc="screen -S"
+alias sl="screen -ls"
+alias sr="screen -r"
 # }
 
 # { disable "spell-correction" for this commands:
@@ -225,6 +231,8 @@ alias scp-noverify='scp -o "StrictHostKeyChecking=no" -o "UserKnownHostsFile=/de
 
 alias iodrag='ionice -c3 nice -n19'
 
+alias netlisteners='lsof -i -P -n | grep LISTEN'
+
 alias d2u='sed "s/.$//"'
 alias u2d='sed "s/$/`echo r`/"'
 #alias clear="tput reset"
@@ -238,7 +246,7 @@ alias grep="grep --color=auto"
 #alias startX='dbus-launch startx'
 alias :q="echo 'doh!'"
 
-alias xprop_name='xprop | grep --color=none "WM_WINDOW_ROLE\|WM_CLASS" | xmessage -file -'
+alias xprop_name='xprop | grep --color=none "WM_WINDOW_ROLE\|WM_CLASS"'
 
 # quick&dirty mirror
 alias mirror="noglob wget --mirror --no-parent --recursive --timestamping --continue --recursive $1"
