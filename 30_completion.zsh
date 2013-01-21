@@ -131,10 +131,10 @@ zstyle ':completion:*:history-words' menu yes
 #hosts=()
 #[ -r ~/.ssh/config ] && hosts=(${${${$(grep '^Host' ~/.ssh/config)}##Host }##[*0-9]*})
 #[ -r ~/.ssh/known_hosts ] && hosts=(${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%\*}%,*})
-hosts=($((
-        ( [ -r .ssh/config ] && awk '/^host +[a-z]/ { print $2 }' .ssh/config) ;\
-        ( [ -r .ssh/known_hosts ] && awk '{print $1}' .ssh/known_hosts | tr , '\n')
-) | sort -u))
+#hosts=($((
+#        ( [ -r .ssh/config ] && awk '/^host +[a-z]/ { print $2 }' .ssh/config) ;\
+#        ( [ -r .ssh/known_hosts ] && awk '{print $1}' .ssh/known_hosts | tr , '\n')
+#) | sort -u))
 
 zstyle ':completion:*' hosts $hosts
 zstyle ':completion:*:hosts' list-colors '=(#b)(*)(.jukie.net)=01;30=01;31' '=[^.]#=01;31'
