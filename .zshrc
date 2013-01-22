@@ -12,7 +12,7 @@ ZSH_THEME="kalos"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
-CASE_SENSITIVE="true"
+#CASE_SENSITIVE="true"
 
 # Comment this out to disable bi-weekly auto-update checks
 # DISABLE_AUTO_UPDATE="true"
@@ -58,6 +58,20 @@ if [[ -e $commands[rbenv] && $EUID != 0 ]]; then
   eval "$(rbenv init -)"
 fi
 # }
+
+# { ansible path for local installation
+export ANSIBLE_HOME=$HOME/projects/devops/ansible
+
+if [[ -d $ANSIBLE_HOME ]]; then
+  export ANSIBLE_CONFIG=$HOME/Private/ansible_private/ansible.cfg
+  
+  export PATH=$ANSIBLE_HOME/bin:$PATH
+  export PYTHONPATH=$ANSIBLE_HOME/lib:$PYTHONPATH
+  export ANSIBLE_LIBRARY=$ANSIBLE_HOME/library
+  export MANPATH=$ANSIBLE_HOME/docs/man:$MANPATH
+fi
+# }
+
 
 # { stderr colored - https://github.com/sickill/stderred
 if [[ -f $HOME/.local/lib/stderred.so ]]; then
