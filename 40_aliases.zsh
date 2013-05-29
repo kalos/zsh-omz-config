@@ -103,7 +103,7 @@ fi
     alias R='aptitude purge'
     alias u='aptitude update'
     alias U='aptitude full-upgrade'
-    alias ae='aptitude search'
+    alias ee='aptitude search'
     alias E='apt-cache search'
     alias AR='apt-get autoremove --purge'
     alias Al='dpkg -L'
@@ -117,36 +117,33 @@ fi
   
     if [[ "$USER" != root ]]; then
       alias pacman="sudo pacman"
-    #  alias yaourt="sudo yaourt"
     fi
-    alias e='pacman -Ss'
+    alias ee='pacman -Ss'
     alias E='pacman -Qs'
     alias i='pacman -S'
     alias u='pacman -Syu'
     alias r='pacman -R'
     alias R='pacman -Rsn'
+    alias In="pacman -Qi"
     alias Al='pacman -Ql'
     alias AL='pacman -Q'
     alias Ao='pacman -Qo'
     alias Lo='pacman -Qdt' # list orphans
-    alias Y='yaourt'
-    alias Yi='yaourt -S'
-    alias Ye='yaourt -Ss'
-    alias Yu='yaourt -Syu --aur'
-  # }
-  
-  # { gentoo - portage
-  elif [[ -e '/etc/gentoo-release' ]]; then
-  
-    alias u='emerge --sync'
-    alias U='emerge -Duav world'
-    alias i='emerge -av'
-    alias r='emerge -C'
-    alias Al='equery f'
-    alias AL='equery l'
-  fi
-  # }
+    alias C='pacman -Scc --noconfirm; yaourt -Cc --noconfirm' # clean caches
 
+    if [[ "$USER" != root ]]; then
+      alias yaourt="sudo yaourt"
+    fi
+    if [[ -e $commands[yaourt] ]]; then
+      alias Y='yaourt'
+      alias i='yaourt -S'
+      alias e='yaourt -Ss'
+      alias u='yaourt -Syua'
+      alias U='yaourt -Syua --devel'
+    fi
+        
+  # }
+  fi
 # }
 
 
@@ -219,8 +216,8 @@ alias zln='zmv -L'
 # commands starting with % for pasting from web
 #alias %=' '
 
+alias e="emacsclient -t -a ''"
 alias vi="vim"
-alias em="emacsclient -t -a ''"
 
 alias s='ssh'
 alias Ps='ssh -MNf'
