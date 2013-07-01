@@ -52,31 +52,35 @@ path=($^path(N))
 export PATH="$PATH:$HOME/.bin"
 # }
 
-# { rbenv support
-if [[ -e $commands[rbenv] && $EUID != 0 ]]; then
-  #export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
-fi
-# }
+## { rbenv support
+#if [[ -e $commands[rbenv] && $EUID != 0 ]]; then
+#  #export PATH="$HOME/.rbenv/bin:$PATH"
+#  eval "$(rbenv init -)"
+#fi
+## }
 
-# { ansible path for local installation
-export ANSIBLE_HOME=$HOME/projects/devops/ansible
+## { ansible path for local installation
+#export ANSIBLE_HOME=$HOME/projects/devops/ansible
+#
+#if [[ -d $ANSIBLE_HOME ]]; then
+#  export ANSIBLE_CONFIG=$HOME/Private/ansible_private/ansible.cfg
+#  
+#  export PATH=$ANSIBLE_HOME/bin:$PATH
+#  export PYTHONPATH=$ANSIBLE_HOME/lib:$PYTHONPATH
+#  export ANSIBLE_LIBRARY=$ANSIBLE_HOME/library
+#  export MANPATH=$ANSIBLE_HOME/docs/man:$MANPATH
+#fi
+## }
 
-if [[ -d $ANSIBLE_HOME ]]; then
-  export ANSIBLE_CONFIG=$HOME/Private/ansible_private/ansible.cfg
-  
-  export PATH=$ANSIBLE_HOME/bin:$PATH
-  export PYTHONPATH=$ANSIBLE_HOME/lib:$PYTHONPATH
-  export ANSIBLE_LIBRARY=$ANSIBLE_HOME/library
-  export MANPATH=$ANSIBLE_HOME/docs/man:$MANPATH
-fi
-# }
-
+## { ansible conf
+#if [[ -e $commands[ansible] ]]; then
+#  export ANSIBLE_CONFIG=$HOME/Private/ansible_private/ansible.cfg
+#fi
 
 # { stderr colored - https://github.com/sickill/stderred
-if [[ -f $HOME/.local/lib/stderred.so ]]; then
-  export LD_PRELOAD="$HOME/.local/lib/stderred.so"
-fi
+#if [[ -f $HOME/.local/lib/stderred.so ]]; then
+#  export LD_PRELOAD="$HOME/.local/lib/stderred.so"
+#fi
 # }
 
 # { umask
@@ -95,9 +99,9 @@ fi
 # }
 
 # { startx
-if [[ -z $DISPLAY && ! -e /tmp/.X11-unix/X0 && $(tty) = /dev/tty1 && $EUID != 0 ]] ; then
-  exec startx
-  # Could use xinit instead of startx
-  #exec xinit -- /usr/bin/X -nolisten tcp vt7
-fi
+#if [[ -z $DISPLAY && ! -e /tmp/.X11-unix/X0 && $(tty) = /dev/tty1 && $EUID != 0 ]] ; then
+#  exec startx
+#  # Could use xinit instead of startx
+#  #exec xinit -- /usr/bin/X -nolisten tcp vt7
+#fi
 # }

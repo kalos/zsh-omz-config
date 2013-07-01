@@ -136,8 +136,8 @@ fi
     fi
     if [[ -e $commands[yaourt] ]]; then
       alias Y='yaourt'
-      alias i='yaourt -S'
-      alias e='yaourt -Ss'
+      alias Yi='yaourt -S'
+      alias ee='yaourt -Ss'
       alias u='yaourt -Syua'
       alias U='yaourt -Syua --devel'
     fi
